@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentorship Period Manager</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>メンター制度 進捗管理ボード</h1>
+        <button id="add-pair-btn" class="btn-primary">新規ペア登録</button>
+    </header>
+
+    <main id="board-container">
+        <section id="dashboard-section" class="card">
+            <h2>全体進捗一覧</h2>
+            <div class="table-container">
+                <table id="dashboard-table">
+                    <thead>
+                        <tr>
+                            <th data-sort="name" class="sortable">ペア名 <span class="sort-icon">↕</span></th>
+                            <th>進捗バー</th>
+                            <th data-sort="progress" class="sortable">進捗率 <span class="sort-icon">↕</span></th>
+                            <th>現在のフェーズ</th>
+                            <th data-sort="days" class="sortable">最終更新 <span class="sort-icon">↕</span></th>
+                            <th>次の面談まで</th>
+                        </tr>
+                    </thead>
+                    <tbody id="dashboard-body">
+                        <!-- Table rows will be injected here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <div id="pairs-grid">
+            <!-- Pair Cards will be injected here -->
+        </div>
+    </main>
+
+    <!-- Admin Log Modal -->
+    <div id="log-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2 id="modal-title">面談記録</h2>
+            <textarea id="log-content" placeholder="面談の記録や評価を入力してください..."></textarea>
+            <div class="modal-actions">
+                <button id="close-modal" class="btn-secondary">キャンセル</button>
+                <button id="save-log" class="btn-primary">保存</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Pair Modal -->
+    <div id="add-pair-modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>新規ペア登録</h2>
+            <div class="form-group">
+                <label>メンター名</label>
+                <input type="text" id="new-mentor" placeholder="山田 太郎">
+            </div>
+            <div class="form-group">
+                <label>メンティー名</label>
+                <input type="text" id="new-mentee" placeholder="鈴木 一郎">
+            </div>
+            <div class="form-group">
+                <label>開始日</label>
+                <input type="date" id="new-start-date">
+            </div>
+            <div class="modal-actions">
+                <button id="close-add-modal" class="btn-secondary">キャンセル</button>
+                <button id="save-new-pair" class="btn-primary">登録</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
